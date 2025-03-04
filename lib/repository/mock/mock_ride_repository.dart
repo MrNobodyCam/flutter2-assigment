@@ -13,7 +13,8 @@ class MockRidesRepository implements RidesRepository {
       RidePreference preference, RidesFilter? filter, RideSortType? sortType) {
     List<Ride> filteredRides = _rides.where((ride) {
       bool matches = ride.departureLocation.name == preference.departure.name &&
-          ride.arrivalLocation.name == preference.arrival.name;
+          ride.arrivalLocation.name == preference.arrival.name &&
+          ride.availableSeats >= preference.requestedSeats;
       if (filter != null) {
         matches = matches && ride.petAccepted == filter.acceptPet;
       }

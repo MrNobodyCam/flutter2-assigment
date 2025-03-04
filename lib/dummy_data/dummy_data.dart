@@ -240,8 +240,11 @@ List<Ride> fakeRides = [
   Ride(
     departureLocation: fakeLocations[40], // Battambang
     arrivalLocation: fakeLocations[39], // Siem Reap
-    departureDate: DateTime.now().add(const Duration(hours: 5, minutes: 30)),
-    arrivalDateTime: DateTime.now().add(const Duration(hours: 7, minutes: 30)),
+    departureDate: DateTime(DateTime.now().year, DateTime.now().month,
+        DateTime.now().day, 5, 30, 0, 0, 0),
+    arrivalDateTime: DateTime(DateTime.now().year, DateTime.now().month,
+            DateTime.now().day, 5, 30, 0, 0, 0)
+        .add(const Duration(hours: 2)),
     driver: fakeUsers[7], // Kannika
     availableSeats: 2,
     pricePerSeat: 10.0,
@@ -250,8 +253,11 @@ List<Ride> fakeRides = [
   Ride(
     departureLocation: fakeLocations[40], // Battambang
     arrivalLocation: fakeLocations[39], // Siem Reap
-    departureDate: DateTime.now().add(const Duration(hours: 8)),
-    arrivalDateTime: DateTime.now().add(const Duration(hours: 10)),
+    departureDate: DateTime(DateTime.now().year, DateTime.now().month,
+        DateTime.now().day, 20, 00, 0, 0, 0),
+    arrivalDateTime: DateTime(DateTime.now().year, DateTime.now().month,
+            DateTime.now().day, 20, 00, 0, 0, 0)
+        .add(const Duration(hours: 2)),
     driver: fakeUsers[8], // Chaylim
     availableSeats: 0,
     pricePerSeat: 10.0,
@@ -260,8 +266,11 @@ List<Ride> fakeRides = [
   Ride(
     departureLocation: fakeLocations[40], // Battambang
     arrivalLocation: fakeLocations[39], // Siem Reap
-    departureDate: DateTime.now().add(const Duration(hours: 5)),
-    arrivalDateTime: DateTime.now().add(const Duration(hours: 8)),
+    departureDate: DateTime(DateTime.now().year, DateTime.now().month,
+        DateTime.now().day, 5, 00, 0, 0, 0),
+    arrivalDateTime: DateTime(DateTime.now().year, DateTime.now().month,
+            DateTime.now().day, 5, 00, 0, 0, 0)
+        .add(const Duration(hours: 3)),
     driver: fakeUsers[9], // Mengtech
     availableSeats: 1,
     pricePerSeat: 10.0,
@@ -270,8 +279,11 @@ List<Ride> fakeRides = [
   Ride(
     departureLocation: fakeLocations[40], // Battambang
     arrivalLocation: fakeLocations[39], // Siem Reap
-    departureDate: DateTime.now().add(const Duration(hours: 8)),
-    arrivalDateTime: DateTime.now().add(const Duration(hours: 10)),
+    departureDate: DateTime(DateTime.now().year, DateTime.now().month,
+        DateTime.now().day, 20, 00, 0, 0, 0),
+    arrivalDateTime: DateTime(DateTime.now().year, DateTime.now().month,
+            DateTime.now().day, 20, 00, 0, 0, 0)
+        .add(const Duration(hours: 2)),
     driver: fakeUsers[10], // Limhao
     availableSeats: 2,
     pricePerSeat: 10.0,
@@ -280,8 +292,11 @@ List<Ride> fakeRides = [
   Ride(
     departureLocation: fakeLocations[40], // Battambang
     arrivalLocation: fakeLocations[39], // Siem Reap
-    departureDate: DateTime.now().add(const Duration(hours: 5)),
-    arrivalDateTime: DateTime.now().add(const Duration(hours: 8)),
+    departureDate: DateTime(DateTime.now().year, DateTime.now().month,
+        DateTime.now().day, 5, 00, 0, 0, 0),
+    arrivalDateTime: DateTime(DateTime.now().year, DateTime.now().month,
+            DateTime.now().day, 5, 00, 0, 0, 0)
+        .add(const Duration(hours: 3)),
     driver: fakeUsers[11], // Sovanda
     availableSeats: 1,
     pricePerSeat: 10.0,

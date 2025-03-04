@@ -1,13 +1,11 @@
 import 'package:flutter2_assignment/repository/ride_repository.dart';
 
-import '../dummy_data/dummy_data.dart';
 import '../model/ride/ride.dart';
 import '../model/ride_pref/ride_pref.dart';
 
 ////
 ///   This service handles:
 ///   - The list of available rides
-///
 ///
 enum RideSortType {
   departure,
@@ -17,13 +15,9 @@ enum RideSortType {
 }
 
 class RidesService {
-  static List<Ride> availableRides = fakeRides;
-
-  ///
-  ///  Return the relevant rides, given the passenger preferences
-  ///
   static RidesService? _instance;
   final RidesRepository repository;
+
   RidesService._internal(this.repository);
 
   static void initialize(RidesRepository repository) {
@@ -40,6 +34,10 @@ class RidesService {
           "RidesService is not initialized. Call initialize() first.");
     }
     return _instance!;
+  }
+
+  static void reset() {
+    _instance = null;
   }
 
   List<Ride> getRidesFor(
