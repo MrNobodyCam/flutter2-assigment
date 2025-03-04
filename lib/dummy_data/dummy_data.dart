@@ -152,38 +152,139 @@ List<User> fakeUsers = [
     profilePicture: "https://randomuser.me/api/portraits/women/6.jpg",
     verifiedProfile: true,
   ),
+  User(
+    firstName: "",
+    lastName: "Durand",
+    email: "fanny.durand@example.com",
+    phone: "+33 675839201",
+    profilePicture: "https://randomuser.me/api/portraits/women/6.jpg",
+    verifiedProfile: true,
+  ),
+  User(
+    firstName: 'Kannika',
+    lastName: 'Cheng',
+    email: 'kannika@example.com',
+    phone: '0123456789',
+    profilePicture: 'https://randomuser.me/api/portraits/women/1.jpg',
+    verifiedProfile: true,
+  ),
+  User(
+    firstName: 'Chaylim',
+    lastName: 'Cheng',
+    email: 'chaylim@example.com',
+    phone: '0123456789',
+    profilePicture: 'https://randomuser.me/api/portraits/men/1.jpg',
+    verifiedProfile: true,
+  ),
+  User(
+    firstName: 'Mengtech',
+    lastName: 'Cheng',
+    email: 'mengtech@example.com',
+    phone: '0123456789',
+    profilePicture: 'https://randomuser.me/api/portraits/men/2.jpg',
+    verifiedProfile: true,
+  ),
+  User(
+    firstName: 'Limhao',
+    lastName: 'Cheng',
+    email: 'limhao@example.com',
+    phone: '0123456789',
+    profilePicture: 'https://randomuser.me/api/portraits/men/3.jpg',
+    verifiedProfile: true,
+  ),
+  User(
+    firstName: 'Sovanda',
+    lastName: 'Cheng',
+    email: 'sovanda@example.com',
+    phone: '0123456789',
+    profilePicture: 'https://randomuser.me/api/portraits/men/4.jpg',
+    verifiedProfile: true,
+  ),
 ];
 
 // Fake  Rides
 
-List<Ride> fakeRides = List.generate(50, (index) {
-  // Select random locations for departure & arrival (ensuring they are different)
-  Location departureLocation =
-      fakeLocations[random.nextInt(fakeLocations.length)];
-  Location arrivalLocation;
-  do {
-    arrivalLocation = fakeLocations[random.nextInt(fakeLocations.length)];
-  } while (departureLocation == arrivalLocation);
+// List<Ride> fakeRides = List.generate(50, (index) {
+//   // Select random locations for departure & arrival (ensuring they are different)
+//   Location departureLocation =
+//       fakeLocations[random.nextInt(fakeLocations.length)];
+//   Location arrivalLocation;
+//   do {
+//     arrivalLocation = fakeLocations[random.nextInt(fakeLocations.length)];
+//   } while (departureLocation == arrivalLocation);
 
-  // Select a random driver
-  User driver = fakeUsers[random.nextInt(fakeUsers.length)];
+//   // Select a random driver
+//   User driver = fakeUsers[random.nextInt(fakeUsers.length)];
 
-  // Random ride details
-  DateTime departureTime = DateTime.now()
-      .add(Duration(days: random.nextInt(10), hours: random.nextInt(24)));
-  DateTime arrivalTime = departureTime
-      .add(Duration(hours: random.nextInt(5) + 2)); // Rides take 2-6 hours
-  int availableSeats = random.nextInt(4) + 1; // Between 1 and 4 seats
-  double pricePerSeat = (random.nextDouble() * 20 + 5)
-      .roundToDouble(); // Price between 5€ and 25€
+//   // Random ride details
+//   DateTime departureTime = DateTime.now()
+//       .add(Duration(days: random.nextInt(10), hours: random.nextInt(24)));
+//   DateTime arrivalTime = departureTime
+//       .add(Duration(hours: random.nextInt(5) + 2)); // Rides take 2-6 hours
+//   int availableSeats = random.nextInt(4) + 1; // Between 1 and 4 seats
+//   double pricePerSeat = (random.nextDouble() * 20 + 5)
+//       .roundToDouble(); // Price between 5€ and 25€
 
-  return Ride(
-    departureLocation: departureLocation,
-    departureDate: departureTime,
-    arrivalLocation: arrivalLocation,
-    arrivalDateTime: arrivalTime,
-    driver: driver,
-    availableSeats: availableSeats,
-    pricePerSeat: pricePerSeat,
-  );
-});
+//   return Ride(
+//     departureLocation: departureLocation,
+//     departureDate: departureTime,
+//     arrivalLocation: arrivalLocation,
+//     arrivalDateTime: arrivalTime,
+//     driver: driver,
+//     availableSeats: availableSeats,
+//     pricePerSeat: pricePerSeat,
+//   );
+// });
+
+List<Ride> fakeRides = [
+  Ride(
+    departureLocation: fakeLocations[40], // Battambang
+    arrivalLocation: fakeLocations[39], // Siem Reap
+    departureDate: DateTime.now().add(const Duration(hours: 5, minutes: 30)),
+    arrivalDateTime: DateTime.now().add(const Duration(hours: 7, minutes: 30)),
+    driver: fakeUsers[7], // Kannika
+    availableSeats: 2,
+    pricePerSeat: 10.0,
+    petAccepted: false,
+  ),
+  Ride(
+    departureLocation: fakeLocations[40], // Battambang
+    arrivalLocation: fakeLocations[39], // Siem Reap
+    departureDate: DateTime.now().add(const Duration(hours: 8)),
+    arrivalDateTime: DateTime.now().add(const Duration(hours: 10)),
+    driver: fakeUsers[8], // Chaylim
+    availableSeats: 0,
+    pricePerSeat: 10.0,
+    petAccepted: false,
+  ),
+  Ride(
+    departureLocation: fakeLocations[40], // Battambang
+    arrivalLocation: fakeLocations[39], // Siem Reap
+    departureDate: DateTime.now().add(const Duration(hours: 5)),
+    arrivalDateTime: DateTime.now().add(const Duration(hours: 8)),
+    driver: fakeUsers[9], // Mengtech
+    availableSeats: 1,
+    pricePerSeat: 10.0,
+    petAccepted: false,
+  ),
+  Ride(
+    departureLocation: fakeLocations[40], // Battambang
+    arrivalLocation: fakeLocations[39], // Siem Reap
+    departureDate: DateTime.now().add(const Duration(hours: 8)),
+    arrivalDateTime: DateTime.now().add(const Duration(hours: 10)),
+    driver: fakeUsers[10], // Limhao
+    availableSeats: 2,
+    pricePerSeat: 10.0,
+    petAccepted: true,
+  ),
+  Ride(
+    departureLocation: fakeLocations[40], // Battambang
+    arrivalLocation: fakeLocations[39], // Siem Reap
+    departureDate: DateTime.now().add(const Duration(hours: 5)),
+    arrivalDateTime: DateTime.now().add(const Duration(hours: 8)),
+    driver: fakeUsers[11], // Sovanda
+    availableSeats: 1,
+    pricePerSeat: 10.0,
+    petAccepted: false,
+  ),
+];
