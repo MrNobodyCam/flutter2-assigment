@@ -1,12 +1,15 @@
 import 'package:flutter/material.dart';
+import 'package:top_modal_sheet/top_modal_sheet.dart';
 
 import '../../dummy_data/dummy_data.dart';
 import '../../model/ride/ride.dart';
 import '../../model/ride_pref/ride_pref.dart';
+import '../../service/ride_prefs_service.dart';
 import '../../service/rides_service.dart';
 import '../../theme/theme.dart';
 
 import 'widgets/ride_pref_bar.dart';
+import 'widgets/ride_pref_modal.dart';
 import 'widgets/rides_tile.dart';
 
 ///
@@ -21,22 +24,31 @@ class RidesScreen extends StatefulWidget {
 }
 
 class _RidesScreenState extends State<RidesScreen> {
-  RidePreference currentPreference =
+  RidePreference get currentPreference =>
+      RidePrefService.instance.currentPreference ??
       fakeRidePrefs[0]; // TODO 1 :  We should get it from the service
 
-  List<Ride> get matchingRides => RidesService.getRidesFor(currentPreference,
-      RidesFilter(acceptPet: true), RideSortType.departureDate);
+  List<Ride> get matchingRides => RidesService.instance.getRidesFor(
+      currentPreference,
+      null,
+      RideSortType
+          .departureDate); // TODO 2 :  We should get it from the service
 
   void onBackPressed() {
     Navigator.of(context).pop(); //  Back to the previous view
   }
 
   void onPreferencePressed() async {
-    // TODO  6 : we should push the modal with the current pref
+    final newPreference = await showModalBottomSheet<RidePreference>(
+      context: context,
+      builder: (context) => RidePrefModal(initialPreference: currentPreference),
+    );
 
-    // TODO 9 :  After pop, we should get the new current pref from the modal
-
-    // TODO 10 :  Then we should update the service current pref,   and update the view
+    if (newPreference != null) {
+      setState(() {
+        RidePrefService.instance.setCurrentPreference(newPreference);
+      });
+    }
   }
 
   void onFilterPressed() {}
@@ -58,12 +70,15 @@ class _RidesScreenState extends State<RidesScreen> {
 
           Expanded(
             child: ListView.builder(
-              itemCount: matchingRides.length,
-              itemBuilder: (ctx, index) => RideTile(
-                ride: matchingRides[index],
-                onPressed: () {},
-              ),
-            ),
+                itemCount: matchingRides.length,
+                itemBuilder: (ctx, index) {
+                  return RideTile(
+                    ride: matchingRides[index],
+                    onPressed: () {
+                      // TODO 3 :  We should navigate to the ride details screen
+                    },
+                  );
+                }),
           ),
         ],
       ),
