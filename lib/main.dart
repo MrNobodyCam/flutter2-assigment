@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'repository/mock/mock_location_preferences_repository.dart';
+import 'repository/mock/mock_location_repository.dart';
 import 'repository/mock/mock_ride_preferences_repository.dart';
 import 'screens/ride_pref/ride_pref_screen.dart';
 import 'service/locations_service.dart';

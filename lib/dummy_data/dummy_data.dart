@@ -53,6 +53,13 @@ const List<Location> fakeLocations = [
   Location(name: "Dijon", country: Country.france),
   Location(name: "Le Havre", country: Country.france),
   Location(name: "Brest", country: Country.france),
+
+  //Cambodia
+  Location(name: 'Phnom penh', country: Country.cambodia),
+  Location(name: 'Siem Reap', country: Country.cambodia),
+  Location(name: 'Battambang', country: Country.cambodia),
+  Location(name: 'Sihaknoukville', country: Country.cambodia),
+  Location(name: 'Kampot', country: Country.cambodia),
 ];
 
 // Fake Ride Preferences
