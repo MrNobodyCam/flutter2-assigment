@@ -54,7 +54,7 @@ class _BlaLocationPickerState extends State<BlaLocationPicker> {
   }
 
   List<Location> getLocationsFor(String text) {
-    return LocationsService.availableLocations
+    return LocationsService.instance.availableLocations
         .where((location) =>
             location.name.toUpperCase().contains(text.toUpperCase()))
         .toList();
@@ -185,7 +185,7 @@ class _BlaSearchBarState extends State<BlaSearchBar> {
               onChanged: onChanged,
               controller: _controller,
               style: TextStyle(color: BlaColors.textLight),
-              decoration: InputDecoration(
+              decoration: const InputDecoration(
                 hintText: "Any city, street...",
                 border: InputBorder.none, // No border
                 filled: false, // No background fill
@@ -202,7 +202,8 @@ class _BlaSearchBarState extends State<BlaSearchBar> {
                     onChanged("");
                   },
                 )
-              : SizedBox.shrink(), // Hides the icon if text field is empty
+              : const SizedBox
+                  .shrink(), // Hides the icon if text field is empty
         ],
       ),
     );

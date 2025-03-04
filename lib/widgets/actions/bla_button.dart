@@ -42,7 +42,7 @@ class BlaButton extends StatelessWidget {
     List<Widget> children = [];
     if (icon != null) {
       children.add(Icon(icon, size: 20, color: iconColor,));
-      children.add(SizedBox(width: BlaSpacings.s));
+      children.add(const SizedBox(width: BlaSpacings.s));
     }
 
     // Create the button text
@@ -56,7 +56,7 @@ class BlaButton extends StatelessWidget {
       child: OutlinedButton(
         style: OutlinedButton.styleFrom(
           backgroundColor: backgroundColor,
-          padding: EdgeInsets.symmetric(vertical: 20),
+          padding: const EdgeInsets.symmetric(vertical: 20),
           shape: RoundedRectangleBorder(
             borderRadius: BorderRadius.circular(BlaSpacings.radius),
           ),

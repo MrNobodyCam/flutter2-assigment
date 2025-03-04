@@ -38,7 +38,7 @@ class _RidePrefModalState extends State<RidePrefModal> {
             onPressed: onBackSelected,
             icon: Icons.close,
           ),
-          SizedBox(height: BlaSpacings.m),
+          const SizedBox(height: BlaSpacings.m),
 
           // Title
           Text("Edit your search",

@@ -31,7 +31,7 @@ class _RidePrefScreenState extends State<RidePrefScreen> {
     RidePrefService.instance.setCurrentPreference(newPreference);
  
     // 2 - Navigate to the rides screen (with a buttom to top animation)
-    await Navigator.of(context).push(AnimationUtils.createBottomToTopRoute(RidesScreen()));
+    await Navigator.of(context).push(AnimationUtils.createBottomToTopRoute(const RidesScreen()));
   
     // 3 - After wait  - Update the state   -- TODO MAKE IT WITH STATE MANAGEMENT
     setState(() { });
@@ -46,19 +46,19 @@ class _RidePrefScreenState extends State<RidePrefScreen> {
     return Stack(
       children: [
         // 1 - Background  Image
-        BlaBackground(),
+        const BlaBackground(),
 
         // 2 - Foreground content
         Column(
           children: [
-            SizedBox(height: BlaSpacings.m),
+            const SizedBox(height: BlaSpacings.m),
             Text(
               "Your pick of rides at low price",
               style: BlaTextStyles.heading.copyWith(color: Colors.white),
             ),
-            SizedBox(height: 100),
+            const SizedBox(height: 100),
             Container(
-              margin: EdgeInsets.symmetric(horizontal: BlaSpacings.xxl),
+              margin: const EdgeInsets.symmetric(horizontal: BlaSpacings.xxl),
               decoration: BoxDecoration(
                 color: Colors.white, // White background
                 borderRadius: BorderRadius.circular(16), // Rounded corners
@@ -69,14 +69,14 @@ class _RidePrefScreenState extends State<RidePrefScreen> {
                 children: [
                   // 2.1 Display the Form to input the ride preferences
                   RidePrefForm(initialPreference: currentRidePreference, onSubmit: onRidePrefSelected),
-                  SizedBox(height: BlaSpacings.m),
+                  const SizedBox(height: BlaSpacings.m),
 
                   // 2.2 Optionally display a list of past preferences
                   SizedBox(
                     height: 200, // Set a fixed height
                     child: ListView.builder(
                       shrinkWrap: true, // Fix ListView height issue
-                      physics: AlwaysScrollableScrollPhysics(),
+                      physics: const AlwaysScrollableScrollPhysics(),
                       itemCount: pastPreferences.length,
                       itemBuilder: (ctx, index) => RidePrefHistoryTile(
                         ridePref: pastPreferences[index],
